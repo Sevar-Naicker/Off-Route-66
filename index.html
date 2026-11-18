@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Off Route 66 Carwash</title>
+  <meta name="description" content="Off Route 66 Carwash: hand wash and detailing, one turn off the main road.">
+  <meta name="theme-color" content="#0B1026">
+  <!-- Keeps the water from the page transition over this page until it drains -->
+  <script>try { if (sessionStorage.getItem('or66-wash')) { sessionStorage.removeItem('or66-wash'); document.documentElement.classList.add('wash-cover'); } } catch (Error) {}</script>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="wrap header-row">
+      <a class="brand" href="index.html" aria-label="Off Route 66 Carwash, home">
+        <svg class="shield" viewBox="0 0 48 48" aria-hidden="true">
+          <path d="M8 7 C14 10 19 9 24 5 C29 9 34 10 40 7 C44 14 45 22 42 29 C39 36 32 41 24 44 C16 41 9 36 6 29 C3 22 4 14 8 7 Z"></path>
+          <text x="24" y="31">66</text>
+        </svg>
+        <span class="brand-name">Off Route 66</span>
+      </a>
+      <nav id="site-nav" class="site-nav" aria-label="Main">
+        <div class="nav-pill">
+          <a href="book.html">Washes</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="about.html">About</a>
+          <a href="find-us.html">Find us</a>
+          <a class="nav-book" href="book.html#book">Book a wash</a>
+        </div>
+      </nav>
+      <div class="header-end">
+        <a class="btn btn--primary" href="book.html#book">Book a wash</a>
+        <button class="btn btn--outline nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      </div>
+    </div>
+    <!-- Trip bar: how far down the page you are -->
+    <div class="trip" aria-hidden="true">
+      <div class="trip-fill" data-trip-fill></div>
+      <svg class="trip-car" data-trip-car viewBox="0 0 48 28">
+        <path d="M4 20 V15 L9 13.5 L15 6 H29 L36.5 13.5 L44 15 V20"></path>
+                <path d="M4 20 H9.5 M16.5 20 H31.5 M38.5 20 H44 M12.5 13.5 H33"></path>
+                <circle cx="13" cy="20" r="3.5"></circle>
+                <circle cx="35" cy="20" r="3.5"></circle>
+      </svg>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="wrap hero">
+      <div class="hero-copy">
+        <span class="tag">Hand wash and detailing</span>
+        <div class="hero-lockup">
+          <h1 class="display hero-title">
+            <span>Off Route 66</span>
+            <!-- Water-filled word: outline, foam, water -->
+            <span class="water-text">
+              <span class="water-outline">Carwash</span>
+              <span class="suds" aria-hidden="true">Carwash</span>
+              <span class="water" aria-hidden="true">Carwash</span>
+            </span>
+          </h1>
+          <div class="actions">
+            <a class="btn btn--primary" href="book.html#book">Book a wash <svg class="btn-arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8 H13 M9 4 L13 8 L9 12"></path></svg></a>
+            <a class="btn btn--outline" href="#washes">See the washes</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Neon logo, the open sign follows the hours in js/site.js -->
+      <div class="hero-logo">
+        <svg class="neon-shield flicker-on" viewBox="-4 -4 56 56" aria-hidden="true">
+          <defs>
+            <filter id="tube-blur" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="0.9"></feGaussianBlur></filter>
+          </defs>
+          <!-- Backing plate and mounting screws -->
+          <path class="sign-plate" d="M8 7 C14 10 19 9 24 5 C29 9 34 10 40 7 C44 14 45 22 42 29 C39 36 32 41 24 44 C16 41 9 36 6 29 C3 22 4 14 8 7 Z" transform="translate(24 24.5) scale(1.12) translate(-24 -24.5)"></path>
+          <circle class="sign-screw" cx="14" cy="11.2" r="0.9"></circle>
+          <circle class="sign-screw" cx="34" cy="11.2" r="0.9"></circle>
+          <circle class="sign-screw" cx="24" cy="41.6" r="0.9"></circle>
+          <!-- Glow layer -->
+          <g class="glow" filter="url(#tube-blur)">
+            <path class="tube" d="M8 7 C14 10 19 9 24 5 C29 9 34 10 40 7 C44 14 45 22 42 29 C39 36 32 41 24 44 C16 41 9 36 6 29 C3 22 4 14 8 7 Z" pathLength="100" stroke-dasharray="31 0.9 44 0.9 23.2"></path>
+            <path class="tube tube--blue" d="M8 7 C14 10 19 9 24 5 C29 9 34 10 40 7 C44 14 45 22 42 29 C39 36 32 41 24 44 C16 41 9 36 6 29 C3 22 4 14 8 7 Z" transform="translate(24 24.5) scale(0.84) translate(-24 -24.5)"></path>
+            <text class="tube" x="24" y="32.5">66</text>
+          </g>
+          <!-- Bright tube cores -->
+          <g class="core">
+            <path class="tube" d="M8 7 C14 10 19 9 24 5 C29 9 34 10 40 7 C44 14 45 22 42 29 C39 36 32 41 24 44 C16 41 9 36 6 29 C3 22 4 14 8 7 Z" pathLength="100" stroke-dasharray="31 0.9 44 0.9 23.2"></path>
+            <path class="tube tube--blue" d="M8 7 C14 10 19 9 24 5 C29 9 34 10 40 7 C44 14 45 22 42 29 C39 36 32 41 24 44 C16 41 9 36 6 29 C3 22 4 14 8 7 Z" transform="translate(24 24.5) scale(0.84) translate(-24 -24.5)"></path>
+            <text class="tube" x="24" y="32.5">66</text>
+          </g>
+        </svg>
+        <p class="script neon-script flicker-on" aria-hidden="true">hand wash &amp; detailing</p>
+        <p class="board-open is-open" data-open-sign>Open</p>
+        <p class="board-note" data-open-note>Open seven days a week</p>
+      </div>
+    </section>
+
+    <svg class="rocks" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true">
+    <path class="rock-far" d="M0 140 V96 L90 92 L130 60 L210 56 L240 84 L330 88 L380 40 L470 34 L500 20 L560 22 L590 52 L680 58 L720 30 L800 28 L840 60 L930 54 L970 16 L1050 20 L1090 50 L1170 56 L1210 80 L1300 76 L1340 96 L1440 92 V140 Z"></path>
+    <path class="rock-mid" d="M0 140 V118 L160 112 L220 92 L330 96 L420 70 L540 74 L600 100 L760 96 L820 66 L960 70 L1020 98 L1180 94 L1260 110 L1440 106 V140 Z"></path>
+    <path class="rock-lit" d="M0 140 V132 L300 126 L520 118 L720 122 L940 116 L1160 126 L1440 130 V140 Z"></path>
+  </svg>
+  <div class="road" aria-hidden="true"></div>
+
+    <div class="after-road">
+
+      <!-- How it works, as road signs -->
+      <section class="wrap section">
+        <div class="sign-row">
+          <article class="step-sign">
+            <span class="step-tab">Start here</span>
+            <div class="step-panel">
+              <div class="step-top">
+                <span class="step-number">01</span>
+                <svg class="step-arrow" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 42 V8 M12 20 L24 8 L36 20"></path></svg>
+              </div>
+              <h2 class="h-small">Pick a wash</h2>
+              <p>Three washes, priced by the size of your vehicle. Add extras if it needs them.</p>
+            </div>
+            <span class="step-posts" aria-hidden="true"></span>
+          </article>
+          <article class="step-sign">
+            <span class="step-tab">Then</span>
+            <div class="step-panel">
+              <div class="step-top">
+                <span class="step-number">02</span>
+                <svg class="step-arrow" viewBox="0 0 48 48" aria-hidden="true"><path d="M6 24 H40 M28 12 L40 24 L28 36"></path></svg>
+              </div>
+              <h2 class="h-small">Book a time</h2>
+              <p>Choose a day and a slot that suits you. You get a booking ticket straight away.</p>
+            </div>
+            <span class="step-posts" aria-hidden="true"></span>
+          </article>
+          <article class="step-sign">
+            <span class="step-tab">Exit 66</span>
+            <div class="step-panel">
+              <div class="step-top">
+                <span class="step-number">03</span>
+                <svg class="step-arrow" viewBox="0 0 48 48" aria-hidden="true"><path d="M10 40 L38 12 M16 12 H38 V34"></path></svg>
+              </div>
+              <h2 class="h-small">Pull in</h2>
+              <p>Take the turn off the main road and follow the neon shield.</p>
+              <a class="btn btn--outline" href="find-us.html">Map and directions</a>
+            </div>
+            <span class="step-posts" aria-hidden="true"></span>
+          </article>
+        </div>
+      </section>
+
+
+      <!-- Washes, filled in by js/site.js -->
+      <section id="washes" class="wrap section">
+        <div class="stack">
+          <div class="section-head">
+            <div class="title-row">
+              <span class="mile" aria-hidden="true"><small>Mile</small><b>01</b></span>
+              <h2 class="h-section">Three washes</h2>
+            </div>
+            <p>Priced by the size of the vehicle. Pick one here and add extras when you book. Each bar shows how many of the six route stops a wash covers.</p>
+          </div>
+          <div class="grid-3" data-wash-cards></div>
+        </div>
+      </section>
+
+
+      <!-- Route, filled in by js/site.js -->
+      <!-- Water band -->
+      <div class="band band--water">
+        <section id="route" class="wrap section">
+          <div class="card route-card" data-route>
+            <div class="route-top">
+              <div class="stack route-intro">
+                <div class="title-row">
+                  <span class="mile" aria-hidden="true"><small>Mile</small><b>02</b></span>
+                  <h2 class="h-section">The route your car takes</h2>
+                </div>
+                <p class="lead">Six stops from dusty to done. Pick a wash to see which stops it covers, then pick a stop to see what happens there.</p>
+              </div>
+              <div class="switch" role="group" aria-label="Choose a wash" data-route-washes></div>
+            </div>
+
+            <div class="route-scroll">
+              <div class="route-track">
+                <div class="route-car" data-route-car aria-hidden="true">
+                  <svg viewBox="0 0 48 28">
+                  <path d="M4 20 V15 L9 13.5 L15 6 H29 L36.5 13.5 L44 15 V20"></path>
+                  <path d="M4 20 H9.5 M16.5 20 H31.5 M38.5 20 H44 M12.5 13.5 H33"></path>
+                  <circle cx="13" cy="20" r="3.5"></circle>
+                  <circle cx="35" cy="20" r="3.5"></circle>
+                  </svg>
+                </div>
+                <div class="route-road" aria-hidden="true"></div>
+                <div class="route-stops" data-route-stops></div>
+              </div>
+            </div>
+
+            <hr class="dotted">
+
+            <div class="route-detail" aria-live="polite">
+              <h3 class="h-card" data-stop-title></h3>
+              <div>
+                <p data-stop-body></p>
+                <p class="route-note" data-stop-note></p>
+              </div>
+            </div>
+
+            <div>
+              <a class="btn btn--primary" href="book.html" data-route-book><span data-route-book-label>Book a wash</span> <svg class="btn-arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8 H13 M9 4 L13 8 L9 12"></path></svg></a>
+            </div>
+          </div>
+        </section>
+      </div>
+
+
+      <!-- Gallery teaser, sample photos from Unsplash, swap for your own -->
+      <section class="wrap section">
+        <div class="stack">
+          <div class="section-head">
+            <div class="title-row">
+              <span class="mile" aria-hidden="true"><small>Mile</small><b>03</b></span>
+              <h2 class="h-section">Fresh off the line</h2>
+            </div>
+            <div class="section-head-side">
+              <p>A few cars that have been through recently. Hover a photo to see its true colours.</p>
+              <a class="btn btn--outline" href="gallery.html">See the gallery <svg class="btn-arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8 H13 M9 4 L13 8 L9 12"></path></svg></a>
+            </div>
+          </div>
+          <div class="grid-3">
+            <figure class="photo">
+              <a class="photo-btn duo duo--reveal" href="gallery.html"><img src="https://images.unsplash.com/photo-1633014041037-f5446fb4ce99?auto=format&fit=crop&w=900&q=70" alt="Grey car covered in white foam" loading="lazy" data-fallback="images/placeholder.svg"></a>
+              <figcaption><span class="tag">Exterior</span> [CAPTION]</figcaption>
+            </figure>
+            <figure class="photo">
+              <a class="photo-btn duo duo--reveal" href="gallery.html"><img src="https://images.unsplash.com/photo-1565689876697-e467b6c54da2?auto=format&fit=crop&w=900&q=70" alt="Wheel being washed" loading="lazy" data-fallback="images/placeholder.svg"></a>
+              <figcaption><span class="tag">Detailing</span> [CAPTION]</figcaption>
+            </figure>
+            <figure class="photo">
+              <a class="photo-btn duo duo--reveal" href="gallery.html"><img src="https://images.unsplash.com/photo-1771491237218-cbd4a707497e?auto=format&fit=crop&w=900&q=70" alt="Dashboard of a classic car being cleaned" loading="lazy" data-fallback="images/placeholder.svg"></a>
+              <figcaption><span class="tag">Interior</span> [CAPTION]</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- Reviews, paste in real ones -->
+      <section class="wrap section section--flush-top">
+        <div class="stack">
+          <div class="section-head">
+            <div class="title-row">
+              <span class="mile" aria-hidden="true"><small>Mile</small><b>04</b></span>
+              <h2 class="h-section">What drivers are saying</h2>
+            </div>
+          </div>
+          <div class="grid-3">
+            <figure class="card card--water review">
+              <span class="review-mark" aria-hidden="true">&ldquo;</span>
+              <blockquote>[CUSTOMER REVIEW: paste a real review here]</blockquote>
+              <figcaption class="script review-name">[Name]</figcaption>
+            </figure>
+            <figure class="card review">
+              <span class="review-mark" aria-hidden="true">&ldquo;</span>
+              <blockquote>[CUSTOMER REVIEW: paste a real review here]</blockquote>
+              <figcaption class="script review-name">[Name]</figcaption>
+            </figure>
+            <figure class="card review">
+              <span class="review-mark" aria-hidden="true">&ldquo;</span>
+              <blockquote>[CUSTOMER REVIEW: paste a real review here]</blockquote>
+              <figcaption class="script review-name">[Name]</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- Find us band -->
+      <section class="wrap">
+        <div class="card card--red find-band">
+          <div class="find-band-main">
+            <h2 class="h-section">Pull in</h2>
+            <div class="actions">
+              <a class="btn btn--dark" href="book.html#book">Book a wash <svg class="btn-arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8 H13 M9 4 L13 8 L9 12"></path></svg></a>
+              <a class="btn btn--dark" href="find-us.html">Map and directions</a>
+            </div>
+          </div>
+          <p class="find-band-text">Book a time online, or just take the turn off the main road and pull in. <span data-open-note></span></p>
+          <div class="find-facts find-band-bottom">
+            <div>
+              <h3>Open</h3>
+              <p data-hours-summary>Mon to Fri 07:30 to 17:30<br>Sat 08:00 to 16:00<br>Sun 08:00 to 13:00</p>
+            </div>
+            <div>
+              <h3>Find us</h3>
+              <p>[YOUR STREET ADDRESS]</p>
+            </div>
+            <div>
+              <h3>Call</h3>
+              <p>[YOUR PHONE NUMBER]</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="wrap footer-wrap">
+      <div class="card footer-card">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <svg class="shield" viewBox="0 0 48 48" aria-hidden="true">
+          <path d="M8 7 C14 10 19 9 24 5 C29 9 34 10 40 7 C44 14 45 22 42 29 C39 36 32 41 24 44 C16 41 9 36 6 29 C3 22 4 14 8 7 Z"></path>
+          <text x="24" y="31">66</text>
+        </svg>
+            <span>Off Route 66 Carwash</span>
+          </div>
+          <a class="btn btn--primary" href="book.html#book">Book a wash <svg class="btn-arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8 H13 M9 4 L13 8 L9 12"></path></svg></a>
+        </div>
+        <hr class="dotted">
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h3>Open</h3>
+            <p data-hours-summary>Mon to Fri 07:30 to 17:30<br>Sat 08:00 to 16:00<br>Sun 08:00 to 13:00</p>
+          </div>
+          <div class="footer-col">
+            <h3>Find us</h3>
+            <p>[YOUR STREET ADDRESS]</p>
+            <a href="find-us.html">Map and directions</a>
+          </div>
+          <div class="footer-col">
+            <h3>Call</h3>
+            <p>[YOUR PHONE NUMBER]</p>
+          </div>
+          <div class="footer-col">
+            <h3>Follow</h3>
+            <!-- Replace each # with your profile link -->
+            <div class="social">
+              <a href="#">Instagram</a>
+              <a href="#">Facebook</a>
+              <a href="#">TikTok</a>
+              <a href="#">WhatsApp</a>
+            </div>
+          </div>
+        </div>
+        <p class="footer-mark" aria-hidden="true">Off Route 66</p>
+      </div>
+      <div class="footer-base">
+        <span>Off Route 66 Carwash</span>
+        <span>Hand wash and detailing</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="vendor/lenis.min.js"></script>
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/ScrollTrigger.min.js"></script>
+  <script src="js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Find us | Off Route 66 Carwash</title>
+  <meta name="description" content="Map, directions, opening hours and contact details for Off Route 66 Carwash.">
+  <meta name="theme-color" content="#0B1026">
+  <!-- Keeps the water from the page transition over this page until it drains -->
+  <script>try { if (sessionStorage.getItem('or66-wash')) { sessionStorage.removeItem('or66-wash'); document.documentElement.classList.add('wash-cover'); } } catch (Error) {}</script>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="vendor/leaflet.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="wrap header-row">
+      <a class="brand" href="index.html" aria-label="Off Route 66 Carwash, home">
+        <svg class="shield" viewBox="0 0 48 48" aria-hidden="true">
+          <path d="M8 7 C14 10 19 9 24 5 C29 9 34 10 40 7 C44 14 45 22 42 29 C39 36 32 41 24 44 C16 41 9 36 6 29 C3 22 4 14 8 7 Z"></path>
+          <text x="24" y="31">66</text>
+        </svg>
+        <span class="brand-name">Off Route 66</span>
+      </a>
+      <nav id="site-nav" class="site-nav" aria-label="Main">
+        <div class="nav-pill">
+          <a href="book.html">Washes</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="about.html">About</a>
+          <a href="find-us.html" aria-current="page">Find us</a>
+          <a class="nav-book" href="book.html#book">Book a wash</a>
+        </div>
+      </nav>
+      <div class="header-end">
+        <a class="btn btn--primary" href="book.html#book">Book a wash</a>
+        <button class="btn btn--outline nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      </div>
+    </div>
+    <!-- Trip bar: how far down the page you are -->
+    <div class="trip" aria-hidden="true">
+      <div class="trip-fill" data-trip-fill></div>
+      <svg class="trip-car" data-trip-car viewBox="0 0 48 28">
+        <path d="M4 20 V15 L9 13.5 L15 6 H29 L36.5 13.5 L44 15 V20"></path>
+                <path d="M4 20 H9.5 M16.5 20 H31.5 M38.5 20 H44 M12.5 13.5 H33"></path>
+                <circle cx="13" cy="20" r="3.5"></circle>
+                <circle cx="35" cy="20" r="3.5"></circle>
+      </svg>
+    </div>
+  </header>
+
+  <!-- Page heading -->
+  <section class="wrap page-head">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li aria-current="page">Find us</li>
+      </ol>
+    </nav>
+    <div class="page-head-row">
+      <h1 class="page-title">Find us</h1>
+      <p class="lead">One turn off the main road. Here is the turn.</p>
+    </div>
+  </section>
+  <svg class="rocks" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true">
+    <path class="rock-far" d="M0 140 V96 L90 92 L130 60 L210 56 L240 84 L330 88 L380 40 L470 34 L500 20 L560 22 L590 52 L680 58 L720 30 L800 28 L840 60 L930 54 L970 16 L1050 20 L1090 50 L1170 56 L1210 80 L1300 76 L1340 96 L1440 92 V140 Z"></path>
+    <path class="rock-mid" d="M0 140 V118 L160 112 L220 92 L330 96 L420 70 L540 74 L600 100 L760 96 L820 66 L960 70 L1020 98 L1180 94 L1260 110 L1440 106 V140 Z"></path>
+    <path class="rock-lit" d="M0 140 V132 L300 126 L520 118 L720 122 L940 116 L1160 126 L1440 130 V140 Z"></path>
+  </svg>
+  <div class="road" aria-hidden="true"></div>
+
+  <main class="after-road">
+
+    <!-- Live map, the pin comes from Config.Location in js/site.js -->
+    <!-- Water band -->
+    <div class="band band--water">
+      <section class="wrap section">
+        <div class="card map">
+          <div class="map-canvas" data-map role="region" aria-label="Map showing where Off Route 66 Carwash is">
+            <p class="map-fallback">The map needs an internet connection. Use the Google Maps buttons below for directions.</p>
+          </div>
+          <p class="map-hint">Click the map to zoom with your scroll wheel.</p>
+          <div class="map-bar">
+            <div class="map-address">
+              <span class="caption">Off Route 66 Carwash</span>
+              <span data-map-address>[YOUR STREET ADDRESS]</span>
+            </div>
+            <div class="actions">
+              <a class="btn btn--outline" href="#" target="_blank" rel="noopener" data-map-open>Open in Google Maps</a>
+              <a class="btn btn--primary" href="#" target="_blank" rel="noopener" data-map-directions>Directions from where I am <svg class="btn-arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8 H13 M9 4 L13 8 L9 12"></path></svg></a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+
+    <!-- Directions, hours and contact -->
+    <section class="wrap section">
+      <div class="grid-3">
+        <div class="card">
+          <span class="mile" aria-hidden="true"><small>Mile</small><b>01</b></span>
+          <h2 class="h-card">Directions</h2>
+          <ol class="directions">
+            <li>From [MAIN ROAD], head towards [DIRECTION OR SUBURB].</li>
+            <li>Turn at [LANDMARK OR TRAFFIC LIGHT] into [YOUR STREET].</li>
+            <li>Carry on for about [DISTANCE].</li>
+            <li>Look for the neon shield on the [LEFT OR RIGHT].</li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <span class="mile" aria-hidden="true"><small>Mile</small><b>02</b></span>
+          <h2 class="h-card">Open</h2>
+          <span class="tag hours-status" data-open-note>Open seven days a week</span>
+          <!-- Hours come from js/site.js -->
+          <table class="hours">
+            <tbody data-hours-table>
+              <tr><th scope="row">Monday</th><td>07:30 to 17:30</td></tr>
+              <tr><th scope="row">Tuesday</th><td>07:30 to 17:30</td></tr>
+              <tr><th scope="row">Wednesday</th><td>07:30 to 17:30</td></tr>
+              <tr><th scope="row">Thursday</th><td>07:30 to 17:30</td></tr>
+              <tr><th scope="row">Friday</th><td>07:30 to 17:30</td></tr>
+              <tr><th scope="row">Saturday</th><td>08:00 to 16:00</td></tr>
+              <tr><th scope="row">Sunday</th><td>08:00 to 13:00</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card card--red contact-card">
+          <span class="mile" aria-hidden="true"><small>Mile</small><b>03</b></span>
+          <h2 class="h-card">Contact</h2>
+          <dl class="contact-list">
+            <div><dt>Address</dt><dd>[YOUR STREET ADDRESS]</dd></div>
+            <div><dt>Phone</dt><dd>[YOUR PHONE NUMBER]</dd></div>
+            <div><dt>WhatsApp</dt><dd>[YOUR WHATSAPP NUMBER]</dd></div>
+            <div><dt>Email</dt><dd>[YOUR EMAIL ADDRESS]</dd></div>
+          </dl>
+          <a class="btn btn--dark" href="book.html#book">Book a wash <svg class="btn-arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8 H13 M9 4 L13 8 L9 12"></path></svg></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="wrap footer-wrap">
+      <div class="card footer-card">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <svg class="shield" viewBox="0 0 48 48" aria-hidden="true">
+          <path d="M8 7 C14 10 19 9 24 5 C29 9 34 10 40 7 C44 14 45 22 42 29 C39 36 32 41 24 44 C16 41 9 36 6 29 C3 22 4 14 8 7 Z"></path>
+          <text x="24" y="31">66</text>
+        </svg>
+            <span>Off Route 66 Carwash</span>
+          </div>
+          <a class="btn btn--primary" href="book.html#book">Book a wash <svg class="btn-arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8 H13 M9 4 L13 8 L9 12"></path></svg></a>
+        </div>
+        <hr class="dotted">
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h3>Open</h3>
+            <p data-hours-summary>Mon to Fri 07:30 to 17:30<br>Sat 08:00 to 16:00<br>Sun 08:00 to 13:00</p>
+          </div>
+          <div class="footer-col">
+            <h3>Find us</h3>
+            <p>[YOUR STREET ADDRESS]</p>
+            <a href="find-us.html">Map and directions</a>
+          </div>
+          <div class="footer-col">
+            <h3>Call</h3>
+            <p>[YOUR PHONE NUMBER]</p>
+          </div>
+          <div class="footer-col">
+            <h3>Follow</h3>
+            <!-- Replace each # with your profile link -->
+            <div class="social">
+              <a href="#">Instagram</a>
+              <a href="#">Facebook</a>
+              <a href="#">TikTok</a>
+              <a href="#">WhatsApp</a>
+            </div>
+          </div>
+        </div>
+        <p class="footer-mark" aria-hidden="true">Off Route 66</p>
+      </div>
+      <div class="footer-base">
+        <span>Off Route 66 Carwash</span>
+        <span>Hand wash and detailing</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="vendor/leaflet.js"></script>
+  <script src="vendor/lenis.min.js"></script>
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/ScrollTrigger.min.js"></script>
+  <script src="js/site.js"></script>
+</body>
+</html>

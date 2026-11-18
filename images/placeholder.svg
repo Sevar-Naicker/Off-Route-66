@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Photo placeholder">
+  <rect width="800" height="600" fill="#151B3D"/>
+  <g fill="none" stroke="#3A4380" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M340 262 h20 l12 -18 h56 l12 18 h20 a10 10 0 0 1 10 10 v70 a10 10 0 0 1 -10 10 h-120 a10 10 0 0 1 -10 -10 v-70 a10 10 0 0 1 10 -10 z"/>
+    <circle cx="400" cy="306" r="24"/>
+  </g>
+  <text x="400" y="404" font-family="Arial, Helvetica, sans-serif" font-size="26" fill="#A6ADD6" text-anchor="middle">Your photo here, 4:3</text>
+</svg>

@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gallery | Off Route 66 Carwash</title>
+  <meta name="description" content="Photos of cars washed and detailed at Off Route 66 Carwash, before and after.">
+  <meta name="theme-color" content="#0B1026">
+  <!-- Keeps the water from the page transition over this page until it drains -->
+  <script>try { if (sessionStorage.getItem('or66-wash')) { sessionStorage.removeItem('or66-wash'); document.documentElement.classList.add('wash-cover'); } } catch (Error) {}</script>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="wrap header-row">
+      <a class="brand" href="index.html" aria-label="Off Route 66 Carwash, home">
+        <svg class="shield" viewBox="0 0 48 48" aria-hidden="true">
+          <path d="M8 7 C14 10 19 9 24 5 C29 9 34 10 40 7 C44 14 45 22 42 29 C39 36 32 41 24 44 C16 41 9 36 6 29 C3 22 4 14 8 7 Z"></path>
+          <text x="24" y="31">66</text>
+        </svg>
+        <span class="brand-name">Off Route 66</span>
+      </a>
+      <nav id="site-nav" class="site-nav" aria-label="Main">
+        <div class="nav-pill">
+          <a href="book.html">Washes</a>
+          <a href="gallery.html" aria-current="page">Gallery</a>
+          <a href="about.html">About</a>
+          <a href="find-us.html">Find us</a>
+          <a class="nav-book" href="book.html#book">Book a wash</a>
+        </div>
+      </nav>
+      <div class="header-end">
+        <a class="btn btn--primary" href="book.html#book">Book a wash</a>
+        <button class="btn btn--outline nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      </div>
+    </div>
+    <!-- Trip bar: how far down the page you are -->
+    <div class="trip" aria-hidden="true">
+      <div class="trip-fill" data-trip-fill></div>
+      <svg class="trip-car" data-trip-car viewBox="0 0 48 28">
+        <path d="M4 20 V15 L9 13.5 L15 6 H29 L36.5 13.5 L44 15 V20"></path>
+                <path d="M4 20 H9.5 M16.5 20 H31.5 M38.5 20 H44 M12.5 13.5 H33"></path>
+                <circle cx="13" cy="20" r="3.5"></circle>
+                <circle cx="35" cy="20" r="3.5"></circle>
+      </svg>
+    </div>
+  </header>
+
+  <!-- Page heading -->
+  <section class="wrap page-head">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li aria-current="page">Gallery</li>
+      </ol>
+    </nav>
+    <div class="page-head-row">
+      <h1 class="page-title">Gallery</h1>
+      <p class="lead">Cars that have been through the wash, before and after.</p>
+    </div>
+  </section>
+  <svg class="rocks" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true">
+    <path class="rock-far" d="M0 140 V96 L90 92 L130 60 L210 56 L240 84 L330 88 L380 40 L470 34 L500 20 L560 22 L590 52 L680 58 L720 30 L800 28 L840 60 L930 54 L970 16 L1050 20 L1090 50 L1170 56 L1210 80 L1300 76 L1340 96 L1440 92 V140 Z"></path>
+    <path class="rock-mid" d="M0 140 V118 L160 112 L220 92 L330 96 L420 70 L540 74 L600 100 L760 96 L820 66 L960 70 L1020 98 L1180 94 L1260 110 L1440 106 V140 Z"></path>
+    <path class="rock-lit" d="M0 140 V132 L300 126 L520 118 L720 122 L940 116 L1160 126 L1440 130 V140 Z"></path>
+  </svg>
+  <div class="road" aria-hidden="true"></div>
+
+  <main class="after-road">
+
+    <!-- Before and after, same angle for both photos -->
+    <!-- Water band -->
+    <div class="band band--water">
+      <section class="wrap section">
+        <div class="stack">
+          <div class="section-head">
+            <div class="title-row">
+              <span class="mile" aria-hidden="true"><small>Mile</small><b>01</b></span>
+              <h2 class="h-section">Before and after</h2>
+            </div>
+            <p>Drag the red handle across the photo to compare.</p>
+          </div>
+          <div class="compare" data-compare>
+            <img src="images/before.svg" alt="[Describe the car before the wash]">
+            <img class="compare-after" src="images/after.svg" alt="[Describe the car after the wash]">
+            <div class="compare-labels" aria-hidden="true"><span>Before</span><span>After</span></div>
+            <div class="compare-line" aria-hidden="true">
+              <span class="compare-handle"><svg viewBox="0 0 24 24"><path d="M9 6 L3 12 L9 18 M15 6 L21 12 L15 18"></path></svg></span>
+            </div>
+            <input type="range" min="0" max="100" value="50" aria-label="Show more of the before or the after photo">
+          </div>
+        </div>
+      </section>
+    </div>
+
+
+    <!-- Photo grid, data-cat matches a filter, data-full is the bigger lightbox photo -->
+    <section class="wrap section">
+      <div class="stack">
+        <div class="section-head">
+          <div class="title-row">
+            <span class="mile" aria-hidden="true"><small>Mile</small><b>02</b></span>
+            <h2 class="h-section">Every car</h2>
+          </div>
+          <div class="switch" role="group" aria-label="Filter photos">
+            <button class="opt is-on" type="button" data-filter="all" aria-pressed="true">All</button>
+            <button class="opt" type="button" data-filter="exterior" aria-pressed="false">Exterior</button>
+            <button class="opt" type="button" data-filter="interior" aria-pressed="false">Interior</button>
+            <button class="opt" type="button" data-filter="detailing" aria-pressed="false">Detailing</button>
+          </div>
+        </div>
+        <div class="grid-3 grid-3--photos">
+          <figure class="photo" data-cat="exterior">
+            <button class="photo-btn duo duo--reveal" type="button"><img src="https://images.unsplash.com/photo-1633014041037-f5446fb4ce99?auto=format&fit=crop&w=900&q=70" data-full="https://images.unsplash.com/photo-1633014041037-f5446fb4ce99?auto=format&fit=crop&w=1800&q=70" alt="Grey car covered in white foam" loading="lazy" data-fallback="images/placeholder.svg"></button>
+            <figcaption><span class="tag">Exterior</span> [CAPTION]</figcaption>
+          </figure>
+          <figure class="photo" data-cat="interior">
+            <button class="photo-btn duo duo--reveal" type="button"><img src="https://images.unsplash.com/photo-1652860316277-370ca5b1b1df?auto=format&fit=crop&w=900&q=70" data-full="https://images.unsplash.com/photo-1652860316277-370ca5b1b1df?auto=format&fit=crop&w=1800&q=70" alt="Clean car interior with light leather seats" loading="lazy" data-fallback="images/placeholder.svg"></button>
+            <figcaption><span class="tag">Interior</span> [CAPTION]</figcaption>
+          </figure>
+          <figure class="photo" data-cat="detailing">
+            <button class="photo-btn duo duo--reveal" type="button"><img src="https://images.unsplash.com/photo-1565689876697-e467b6c54da2?auto=format&fit=crop&w=900&q=70" data-full="https://images.unsplash.com/photo-1565689876697-e467b6c54da2?auto=format&fit=crop&w=1800&q=70" alt="Wheel being washed" loading="lazy" data-fallback="images/placeholder.svg"></button>
+            <figcaption><span class="tag">Detailing</span> [CAPTION]</figcaption>
+          </figure>
+          <figure class="photo" data-cat="exterior">
+            <button class="photo-btn duo duo--reveal" type="button"><img src="https://images.unsplash.com/photo-1608506375591-b90e1f955e4b?auto=format&fit=crop&w=900&q=70" data-full="https://images.unsplash.com/photo-1608506375591-b90e1f955e4b?auto=format&fit=crop&w=1800&q=70" alt="Foam being sprayed onto a black car" loading="lazy" data-fallback="images/placeholder.svg"></button>
+            <figcaption><span class="tag">Exterior</span> [CAPTION]</figcaption>
+          </figure>
+          <figure class="photo" data-cat="interior">
+            <button class="photo-btn duo duo--reveal" type="button"><img src="https://images.unsplash.com/photo-1629019878500-302b516de84c?auto=format&fit=crop&w=900&q=70" data-full="https://images.unsplash.com/photo-1629019878500-302b516de84c?auto=format&fit=crop&w=1800&q=70" alt="Brown and black car interior" loading="lazy" data-fallback="images/placeholder.svg"></button>
+            <figcaption><span class="tag">Interior</span> [CAPTION]</figcaption>
+          </figure>
+          <figure class="photo" data-cat="detailing">
+            <button class="photo-btn duo duo--reveal" type="button"><img src="https://images.unsplash.com/photo-1611239179213-d972da54091a?auto=format&fit=crop&w=900&q=70" data-full="https://images.unsplash.com/photo-1611239179213-d972da54091a?auto=format&fit=crop&w=1800&q=70" alt="Water beading on freshly waxed paint" loading="lazy" data-fallback="images/placeholder.svg"></button>
+            <figcaption><span class="tag">Detailing</span> [CAPTION]</figcaption>
+          </figure>
+          <figure class="photo" data-cat="exterior">
+            <button class="photo-btn duo duo--reveal" type="button"><img src="https://images.unsplash.com/photo-1543857182-68106299b6b2?auto=format&fit=crop&w=900&q=70" data-full="https://images.unsplash.com/photo-1543857182-68106299b6b2?auto=format&fit=crop&w=1800&q=70" alt="Two people hand washing a black SUV" loading="lazy" data-fallback="images/placeholder.svg"></button>
+            <figcaption><span class="tag">Exterior</span> [CAPTION]</figcaption>
+          </figure>
+          <figure class="photo" data-cat="interior">
+            <button class="photo-btn duo duo--reveal" type="button"><img src="https://images.unsplash.com/photo-1771491237218-cbd4a707497e?auto=format&fit=crop&w=900&q=70" data-full="https://images.unsplash.com/photo-1771491237218-cbd4a707497e?auto=format&fit=crop&w=1800&q=70" alt="Dashboard of a classic car being cleaned" loading="lazy" data-fallback="images/placeholder.svg"></button>
+            <figcaption><span class="tag">Interior</span> [CAPTION]</figcaption>
+          </figure>
+          <figure class="photo" data-cat="detailing">
+            <button class="photo-btn duo duo--reveal" type="button"><img src="https://images.unsplash.com/photo-1732357624591-f2137085659b?auto=format&fit=crop&w=900&q=70" data-full="https://images.unsplash.com/photo-1732357624591-f2137085659b?auto=format&fit=crop&w=1800&q=70" alt="Car being dried with a yellow cloth" loading="lazy" data-fallback="images/placeholder.svg"></button>
+            <figcaption><span class="tag">Detailing</span> [CAPTION]</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox -->
+    <dialog class="lightbox" data-lightbox aria-label="Photo">
+      <img src="images/placeholder.svg" alt="">
+      <div class="lightbox-bar">
+        <p data-lightbox-caption></p>
+        <div class="lightbox-nav">
+          <button class="icon-btn" type="button" data-lightbox-prev aria-label="Previous photo"><svg viewBox="0 0 24 24"><path d="M15 5 L8 12 L15 19"></path></svg></button>
+          <span class="lightbox-count" data-lightbox-count></span>
+          <button class="icon-btn" type="button" data-lightbox-next aria-label="Next photo"><svg viewBox="0 0 24 24"><path d="M9 5 L16 12 L9 19"></path></svg></button>
+          <button class="btn btn--outline" type="button" data-lightbox-close>Close</button>
+        </div>
+      </div>
+    </dialog>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="wrap footer-wrap">
+      <div class="card footer-card">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <svg class="shield" viewBox="0 0 48 48" aria-hidden="true">
+          <path d="M8 7 C14 10 19 9 24 5 C29 9 34 10 40 7 C44 14 45 22 42 29 C39 36 32 41 24 44 C16 41 9 36 6 29 C3 22 4 14 8 7 Z"></path>
+          <text x="24" y="31">66</text>
+        </svg>
+            <span>Off Route 66 Carwash</span>
+          </div>
+          <a class="btn btn--primary" href="book.html#book">Book a wash <svg class="btn-arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8 H13 M9 4 L13 8 L9 12"></path></svg></a>
+        </div>
+        <hr class="dotted">
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h3>Open</h3>
+            <p data-hours-summary>Mon to Fri 07:30 to 17:30<br>Sat 08:00 to 16:00<br>Sun 08:00 to 13:00</p>
+          </div>
+          <div class="footer-col">
+            <h3>Find us</h3>
+            <p>[YOUR STREET ADDRESS]</p>
+            <a href="find-us.html">Map and directions</a>
+          </div>
+          <div class="footer-col">
+            <h3>Call</h3>
+            <p>[YOUR PHONE NUMBER]</p>
+          </div>
+          <div class="footer-col">
+            <h3>Follow</h3>
+            <!-- Replace each # with your profile link -->
+            <div class="social">
+              <a href="#">Instagram</a>
+              <a href="#">Facebook</a>
+              <a href="#">TikTok</a>
+              <a href="#">WhatsApp</a>
+            </div>
+          </div>
+        </div>
+        <p class="footer-mark" aria-hidden="true">Off Route 66</p>
+      </div>
+      <div class="footer-base">
+        <span>Off Route 66 Carwash</span>
+        <span>Hand wash and detailing</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="vendor/lenis.min.js"></script>
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/ScrollTrigger.min.js"></script>
+  <script src="js/site.js"></script>
+</body>
+</html>

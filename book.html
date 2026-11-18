@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Washes and booking | Off Route 66 Carwash</title>
+  <meta name="description" content="Build your wash, see the price for your vehicle and book a day and time.">
+  <meta name="theme-color" content="#0B1026">
+  <!-- Keeps the water from the page transition over this page until it drains -->
+  <script>try { if (sessionStorage.getItem('or66-wash')) { sessionStorage.removeItem('or66-wash'); document.documentElement.classList.add('wash-cover'); } } catch (Error) {}</script>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="wrap header-row">
+      <a class="brand" href="index.html" aria-label="Off Route 66 Carwash, home">
+        <svg class="shield" viewBox="0 0 48 48" aria-hidden="true">
+          <path d="M8 7 C14 10 19 9 24 5 C29 9 34 10 40 7 C44 14 45 22 42 29 C39 36 32 41 24 44 C16 41 9 36 6 29 C3 22 4 14 8 7 Z"></path>
+          <text x="24" y="31">66</text>
+        </svg>
+        <span class="brand-name">Off Route 66</span>
+      </a>
+      <nav id="site-nav" class="site-nav" aria-label="Main">
+        <div class="nav-pill">
+          <a href="book.html" aria-current="page">Washes</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="about.html">About</a>
+          <a href="find-us.html">Find us</a>
+          <a class="nav-book" href="book.html#book">Book a wash</a>
+        </div>
+      </nav>
+      <div class="header-end">
+        <a class="btn btn--primary" href="book.html#book">Book a wash</a>
+        <button class="btn btn--outline nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      </div>
+    </div>
+    <!-- Trip bar: how far down the page you are -->
+    <div class="trip" aria-hidden="true">
+      <div class="trip-fill" data-trip-fill></div>
+      <svg class="trip-car" data-trip-car viewBox="0 0 48 28">
+        <path d="M4 20 V15 L9 13.5 L15 6 H29 L36.5 13.5 L44 15 V20"></path>
+                <path d="M4 20 H9.5 M16.5 20 H31.5 M38.5 20 H44 M12.5 13.5 H33"></path>
+                <circle cx="13" cy="20" r="3.5"></circle>
+                <circle cx="35" cy="20" r="3.5"></circle>
+      </svg>
+    </div>
+  </header>
+
+  <!-- Page heading -->
+  <section class="wrap page-head">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li aria-current="page">Washes and booking</li>
+      </ol>
+    </nav>
+    <div class="page-head-row">
+      <h1 class="page-title">Washes and booking</h1>
+      <p class="lead">Build your wash, then pick a day and a time.</p>
+    </div>
+  </section>
+  <svg class="rocks" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true">
+    <path class="rock-far" d="M0 140 V96 L90 92 L130 60 L210 56 L240 84 L330 88 L380 40 L470 34 L500 20 L560 22 L590 52 L680 58 L720 30 L800 28 L840 60 L930 54 L970 16 L1050 20 L1090 50 L1170 56 L1210 80 L1300 76 L1340 96 L1440 92 V140 Z"></path>
+    <path class="rock-mid" d="M0 140 V118 L160 112 L220 92 L330 96 L420 70 L540 74 L600 100 L760 96 L820 66 L960 70 L1020 98 L1180 94 L1260 110 L1440 106 V140 Z"></path>
+    <path class="rock-lit" d="M0 140 V132 L300 126 L520 118 L720 122 L940 116 L1160 126 L1440 130 V140 Z"></path>
+  </svg>
+  <div class="road" aria-hidden="true"></div>
+
+  <main class="after-road">
+
+    <!-- Wash builder, filled in by js/site.js -->
+    <section id="washes" class="wrap section">
+      <div class="builder" data-builder>
+        <div class="card builder-options">
+          <div class="stack builder-head">
+            <div class="title-row">
+              <span class="mile" aria-hidden="true"><small>Mile</small><b>01</b></span>
+              <h2 class="h-card">Pick your wash</h2>
+            </div>
+            <p class="lead">Three washes, priced by the size of the vehicle. Add extras if the car needs them.</p>
+          </div>
+          <fieldset class="group">
+            <legend>Vehicle</legend>
+            <div class="opt-row" data-sizes></div>
+          </fieldset>
+          <fieldset class="group">
+            <legend>Wash</legend>
+            <div class="opt-list" data-washes></div>
+          </fieldset>
+          <fieldset class="group">
+            <legend>Extras</legend>
+            <div class="opt-grid" data-extras></div>
+          </fieldset>
+        </div>
+
+        <aside class="card card--red summary" aria-label="Your wash" aria-live="polite">
+          <h2 class="h-card">Your wash</h2>
+          <dl class="summary-list">
+            <dt>Wash</dt>
+            <dd data-sum="wash"></dd>
+            <dt>Vehicle</dt>
+            <dd data-sum="size"></dd>
+            <dt>Extras</dt>
+            <dd data-sum="extras"></dd>
+            <dt>Time</dt>
+            <dd data-sum="time"></dd>
+          </dl>
+          <hr class="dotted">
+          <div class="summary-total">
+            <span>Total</span>
+            <span class="summary-amount" data-sum="total"></span>
+          </div>
+          <a class="btn btn--dark btn--block" href="#book">Book a wash <svg class="btn-arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8 H13 M9 4 L13 8 L9 12"></path></svg></a>
+        </aside>
+      </div>
+    </section>
+
+
+    <!-- Booking form -->
+    <!-- Water band -->
+    <div class="band band--water">
+      <section id="book" class="wrap wrap--narrow section">
+        <div class="stack">
+          <div class="section-head section-head--center">
+            <div class="title-row">
+              <span class="mile" aria-hidden="true"><small>Mile</small><b>02</b></span>
+              <h2 class="h-section">Book a wash</h2>
+            </div>
+            <p><span data-recap></span> <a href="#washes" class="link-yellow">Change wash</a></p>
+          </div>
+
+          <form class="card form" data-booking-form novalidate>
+            <div class="fields">
+              <div class="field">
+                <label for="bk-name">Name</label>
+                <input id="bk-name" name="name" type="text" autocomplete="name">
+              </div>
+              <div class="field">
+                <label for="bk-phone">Phone number</label>
+                <input id="bk-phone" name="phone" type="tel" autocomplete="tel">
+              </div>
+              <div class="field">
+                <label for="bk-day">Day</label>
+                <input id="bk-day" name="day" type="date">
+              </div>
+              <div class="field">
+                <label for="bk-time">Time</label>
+                <!-- Times come from the opening hours in js/site.js -->
+                <select id="bk-time" name="time">
+                  <option value="">Pick a day first</option>
+                </select>
+              </div>
+            </div>
+            <p class="slot-note" data-slot-note hidden></p>
+            <p class="form-error" role="alert" data-form-error hidden></p>
+            <button class="btn btn--primary btn--block" type="submit">Confirm booking</button>
+          </form>
+
+          <!-- Booking ticket -->
+          <div class="ticket" role="status" tabindex="-1" data-ticket hidden>
+            <div class="ticket-main">
+              <span class="tag">Booking confirmed</span>
+              <h3 class="h-card" data-ticket-name></h3>
+              <dl class="ticket-list">
+                <div><dt>Wash</dt><dd data-ticket-wash></dd></div>
+                <div><dt>Vehicle</dt><dd data-ticket-vehicle></dd></div>
+                <div><dt>Day</dt><dd data-ticket-day></dd></div>
+                <div><dt>Time</dt><dd data-ticket-time></dd></div>
+              </dl>
+              <div class="actions">
+                <a class="btn btn--primary" href="#" data-ticket-calendar>Add to calendar</a>
+                <a class="btn btn--outline" href="find-us.html">Directions</a>
+                <button class="btn btn--outline" type="button" data-book-another>Book another wash</button>
+              </div>
+            </div>
+            <div class="ticket-stub">
+              <span class="caption">Reference</span>
+              <span class="ticket-ref" data-ticket-ref></span>
+              <span class="caption">Total</span>
+              <span class="ticket-total" data-ticket-total></span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="wrap footer-wrap">
+      <div class="card footer-card">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <svg class="shield" viewBox="0 0 48 48" aria-hidden="true">
+          <path d="M8 7 C14 10 19 9 24 5 C29 9 34 10 40 7 C44 14 45 22 42 29 C39 36 32 41 24 44 C16 41 9 36 6 29 C3 22 4 14 8 7 Z"></path>
+          <text x="24" y="31">66</text>
+        </svg>
+            <span>Off Route 66 Carwash</span>
+          </div>
+          <a class="btn btn--primary" href="book.html#book">Book a wash <svg class="btn-arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8 H13 M9 4 L13 8 L9 12"></path></svg></a>
+        </div>
+        <hr class="dotted">
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h3>Open</h3>
+            <p data-hours-summary>Mon to Fri 07:30 to 17:30<br>Sat 08:00 to 16:00<br>Sun 08:00 to 13:00</p>
+          </div>
+          <div class="footer-col">
+            <h3>Find us</h3>
+            <p>[YOUR STREET ADDRESS]</p>
+            <a href="find-us.html">Map and directions</a>
+          </div>
+          <div class="footer-col">
+            <h3>Call</h3>
+            <p>[YOUR PHONE NUMBER]</p>
+          </div>
+          <div class="footer-col">
+            <h3>Follow</h3>
+            <!-- Replace each # with your profile link -->
+            <div class="social">
+              <a href="#">Instagram</a>
+              <a href="#">Facebook</a>
+              <a href="#">TikTok</a>
+              <a href="#">WhatsApp</a>
+            </div>
+          </div>
+        </div>
+        <p class="footer-mark" aria-hidden="true">Off Route 66</p>
+      </div>
+      <div class="footer-base">
+        <span>Off Route 66 Carwash</span>
+        <span>Hand wash and detailing</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="vendor/lenis.min.js"></script>
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/ScrollTrigger.min.js"></script>
+  <script src="js/site.js"></script>
+</body>
+</html>
